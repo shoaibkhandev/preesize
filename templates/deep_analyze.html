@@ -1,0 +1,1354 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--====== Title ======-->
+    <title>Deep Analyze</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png')}}">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/LineIcons.css')}}">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/magnific-popup.css')}}">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/default.css')}}">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+
+    <!-- Material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- tabs material -->
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--====== PRELOADER PART START ======-->
+
+    <div class="preloader">
+        <div class="loader_34">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preloader" style="background: rgba(255,255,255,.7);" id="loader">
+        <div class="loader_34">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== PRELOADER ENDS START ======-->
+
+    <!-- vue app -->
+
+    <div id="app">
+        <!--====== ABOUT PART START ======-->
+
+        <section id="nlp" class="about-area pt-30 pb-130">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center">
+                        <h2 class="title">Deep Analyze</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="font-weight: bold" id="exampleModalLongTitle">Save Files in below Options</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <select class="form-control" onchange="download()" name="" id="export-data">
+                                            <option value="pdf">PDF File</option>
+                                            <option value="word">WORD FILE</option>
+                                            <option value="txt">TEXT FILE</option>
+                                        </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="saveFile()" style="background: #754ef9; border: 0px" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 2 -->
+                <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="font-weight: bold" id="exampleModalLongTitle">Save Files in below Options</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <select class="form-control" onchange="download2()" name="" id="export-data2">
+                                                <option value="pdf">PDF File</option>
+                                                <option value="word">WORD FILE</option>
+                                                <option value="txt">TEXT FILE</option>
+                                            </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="saveFile2()" style="background: #754ef9; border: 0px" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 3 -->
+                <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="font-weight: bold" id="exampleModalLongTitle">Save Files in below Options</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <select class="form-control" onchange="download3()" name="" id="export-data3">
+                                                    <option value="pdf">PDF File</option>
+                                                    <option value="word">WORD FILE</option>
+                                                    <option value="txt">TEXT FILE</option>
+                                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="saveFile3()" style="background: #754ef9; border: 0px" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="isUrl3" class="form-group" style="display: inline-flex; width: 100%; margin: 16px 0px">
+                    <!-- Search form -->
+                    <div class="has-feedback has-feedback-left" style="width: 100%; opacity: 1">
+                        <input id="url3" v-model="preInput" class="form-control" type="text" placeholder="Your Original URL Here..." aria-label="Search">
+                    </div>
+                    <button class="btn btn-primary" onclick="presReqUrl()" style="background: #754ef9; border: 0px; margin-left: 10px;">
+                                            Analyze </button>
+                </div>
+
+                <div id="isFile3" id="dropContainer3" accept=".txt" style="background: rgba(255, 255, 255, 0.6);border-style: dashed; border-color: rgba(112, 112, 112, 0.2); text-align: center; padding: 50px; border-radius: 5px">
+                    <input type="file" accept=".txt" id="upload3" name="browse" style="visibility: hidden; width: 1px; height: 1px; " multiple /> <span class="b-color" style="margin-right: 8px;">Drag a file here or </span>
+                    <a href="" onclick="document.getElementById('upload3').click(); return false"><span style="color: #754ef9;">browse</span></a>
+                    <span class="b-color" style="margin-left: 8px">for file to upload</span>
+                </div>
+
+                <div id="isInput3" style="display:inline-block; position:relative; width: 100%">
+                    <h4 style="margin-top: 8px">Input here</h4>
+                    <textarea id="content-target3" v-model="inputTextarea3" style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; min-height: 220px; width: 100%; padding: 16px; border-radius: 5px; margin-bottom: 8px; border: 1px solid #ced4da;"></textarea>
+                    <button id="isBtn3" type="button" onclick="presText()" style="background: #754ef9; border: 0px; margin-bottom: 8px; display: none" class="btn btn-primary" data-toggle="modal">
+                    Analyze
+                </button>
+                </div>
+
+                <div style="display:inline-block; position:relative; width: 100%">
+                    <h4>Analyze Result By Sentences</h4>
+                    <div id="analyze_result2" style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; height: 220px; overflow-y: scroll; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da; ">
+                        <button onclick="copyText3()" class="btn btn-link" style="color: #754ef9;position:absolute;bottom:8px;right:8px;"><i
+                    class="material-icons">content_copy</i></button>
+                        <p id="pdf3"></p>
+                    </div>
+                </div>
+                <h4 style="margin-top: 8px">Overall Percentage (%) : </h4>
+                <div style="background:rgba(255, 255, 255, 0.6); margin-top: 8px; margin-bottom: 8px; min-height: 45px; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da ">
+                    <span style="color: black"><button type="button" style="border: 2px solid #9400D3" class="btn">
+                                <span class="badge badge-danger" id="toxicity" style="margin-right: 8px; background: #9400D3">50</span>Toxicity
+                    </button>
+                    </span>
+                    <span style="color: black"><button type="button" style="border: 2px solid #ffc107" class="btn">
+                                <span class="badge badge-success" id="insult" style="margin-right: 8px; background: #ffc107">20</span>Insult
+                    </button>
+                    </span>
+                    <span style="color: black"><button type="button" style="border: 2px solid #FF7F00" class="btn">
+                                <span class="badge badge-warning" id="profanity" style="margin-right: 8px; background: #FF7F00">10</span>Profanity
+                    </button>
+                    </span>
+                    <span style="color: black"><button type="button" style="border: 2px solid #0000FF" class="btn">
+                    <span class="badge badge-danger" id="sexual" style="margin-right: 8px; background: #0000FF">50</span>Sexuality Explict
+                    </button>
+                    </span>
+                    <span style="color: black"><button type="button" style="border: 2px solid #4B0082" class="btn">
+                    <span class="badge badge-success" id="identity" style="margin-right: 8px; background: #4B0082">20</span>Identity Attack
+                    </button>
+                    </span>
+                    <span style="color: black"><button type="button" style="border: 2px solid #FF0000" class="btn">
+                    <span class="badge badge-warning" id="threat" style="margin-right: 8px; background: #FF0000">10</span>Threat
+                    </button>
+                    </span>
+
+                    <span style="color: white"><button type="button" style="border: 2px solid #28a745" class="btn">
+                    <span class="badge badge-warning" id="flirt" style="margin-right: 8px; background: #28a745">10</span>Flirtation
+                    </button>
+                    </span>
+                </div>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="main-btn" data-toggle="modal" data-target="#exampleModalCenter3">
+                                        Export
+                                    </button>
+
+                <p style="font-size: 18px;margin-top: 16px; text-align: center;">Do you want to Deep Analyze another one
+                    <button class="btn btn-primary" @click="resetPres()">Yes</button>
+                    <button class="btn btn-danger">No</button>
+                </p>
+            </div>
+        </section>
+
+        <!--====== ABOUT PART ENDS ======-->
+
+    </div>
+    <!--====== BACK TOP TOP PART START ======-->
+
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+    <!--====== BACK TOP TOP PART ENDS ======-->
+
+    <!-- axios -->
+
+    <script type="text/javascript" src="{{url_for('static', filename='js/axios.min.js')}}"></script>
+
+    <!-- Sweet Alert -->
+    <script type="text/javascript" src="{{url_for('static', filename='dist/sweetalert.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/sweetalert.css')}}">
+
+    <!--====== jquery js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/vendor/modernizr-3.6.0.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/vendor/jquery-1.12.4.min.js')}}"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+
+    <!--====== Magnific Popup js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+
+    <!--====== Parallax js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/parallax.min.js')}}"></script>
+
+    <!--====== Counter Up js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/waypoints.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.counterup.min.js')}}"></script>
+
+
+    <!--====== Appear js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.appear.min.js')}}"></script>
+
+    <!--====== Scrolling js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/scrolling-nav.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.easing.min.js')}}"></script>
+
+
+    <!--====== Main js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/main.js')}}"></script>
+
+    <!-- pdf reader -->
+    <script src="https://www.jsdelivr.com/package/npm/pdfjs-dist"></script>
+    <script src="https://cdnjs.com/libraries/pdf.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist/"></script>
+
+    <!-- vue -->
+    <script src="{{url_for('static', filename='js/vue.js')}}"></script>
+
+    <!-- vue js -->
+    <script>
+        var myObject = new Vue({
+            el: '#app',
+            delimiters: ['{', '}'],
+            data: {
+                message: "hello from vue",
+                sumInput: "",
+                senInput: "",
+                preInput: "",
+                inputTextarea1: "",
+                inputTextarea2: "",
+                inputTextarea3: "",
+                summaryMethod: 1,
+                sentiMethod: 1,
+                mainTabs: 1,
+            },
+            methods: {
+                resetSummary() {
+                    inputTextarea1 = ""
+                    document.getElementById("content-target").readOnly = false
+                    document.getElementById("url1").value = ""
+                    document.getElementById("summary_result_text").innerHTML = ""
+                    document.getElementById("content-target").innerHTML = ""
+                    $("#isUrl1").show()
+                    $("#isFile1").show()
+                    $("#isInput1").show()
+                },
+                resetSenti() {
+                    inputTextarea2 = ""
+                    document.getElementById("content-target2").readOnly = false
+                    document.getElementById("url2").value = ""
+                    document.getElementById("pdf2").innerHTML = ""
+                    document.getElementById("content-target2").innerHTML = ""
+                    $("#isUrl2").show()
+                    $("#isFile2").show()
+                    $("#isInput2").show()
+                },
+                resetPres() {
+                    inputTextarea3 = ""
+                    document.getElementById("content-target3").readOnly = false
+                    document.getElementById("url3").value = ""
+                    document.getElementById("pdf3").innerHTML = ""
+                    document.getElementById("content-target3").innerHTML = ""
+                    $("#isUrl3").show()
+                    $("#isFile3").show()
+                    $("#isInput3").show()
+                }
+            },
+            watch: {
+                sumInput(val) {
+                    if (val === "") {
+                        $("#isFile1").show()
+                        $("#isInput1").show()
+                    } else {
+                        $("#isFile1").hide()
+                        $("#isInput1").hide()
+                    }
+                },
+                senInput(val) {
+                    if (val === "") {
+                        $("#isFile2").show()
+                        $("#isInput2").show()
+                    } else {
+                        $("#isFile2").hide()
+                        $("#isInput2").hide()
+                    }
+                },
+                preInput(val) {
+                    if (val === "") {
+                        $("#isFile3").show()
+                        $("#isInput3").show()
+                    } else {
+                        $("#isFile3").hide()
+                        $("#isInput3").hide()
+                    }
+                },
+                inputTextarea1(val) {
+                    if (val === "") {
+                        $("#isFile1").show()
+                        $("#isUrl1").show()
+                        $("#isBtn1").hide()
+                    } else {
+                        $("#isBtn1").show()
+                        $("#isFile1").hide()
+                        $("#isUrl1").hide()
+                    }
+                },
+                inputTextarea2(val) {
+                    if (val === "") {
+                        $("#isFile2").show()
+                        $("#isUrl2").show()
+                        $("#isBtn2").hide()
+                    } else {
+                        $("#isBtn2").show()
+                        $("#isFile2").hide()
+                        $("#isUrl2").hide()
+                    }
+                },
+                inputTextarea3(val) {
+                    if (val === "") {
+                        $("#isFile3").show()
+                        $("#isUrl3").show()
+                        $("#isBtn3").hide()
+                    } else {
+                        $("#isBtn3").show()
+                        $("#isFile3").hide()
+                        $("#isUrl3").hide()
+                    }
+                },
+                summaryMethod(val) {
+                    this.sumInput = ""
+                    this.inputTextarea1 = ""
+                    this.resetSummary()
+                },
+                sentiMethod(val) {
+                    this.senInput = ""
+                    this.inputTextarea2 = ""
+                    this.resetSenti()
+                },
+                mainTabs(val) {
+                    console.log(val)
+                    if (val === '1') {
+                        this.sumInput = ""
+                        this.inputTextarea1 = ""
+                        this.resetSummary()
+                        console.log("summary")
+                    } else if (val === '2') {
+                        this.senInput = ""
+                        this.inputTextarea2 = ""
+                        this.resetSenti()
+                        console.log("Senti")
+                    } else {
+                        this.preInput = ""
+                        this.inputTextarea3 = ""
+                        this.resetPres()
+                        console.log("pres")
+                    }
+                }
+            },
+        })
+    </script>
+
+
+    <!-- copytext -->
+    <script>
+        // Copy text function
+        function copyText() {
+            /* Get the text field */
+            var copyText = document.getElementById("summary_result_text")
+
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(copyText).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+            if (copyText.innerHTML == "") {
+                // alert("No Text Found")
+
+                swal("No text found", "", "error")
+            } else {
+                swal({
+                        showConfirmButton: false,
+                        title: 'Text copied',
+                        type: 'success',
+                        timer: 2000,
+                    })
+                    // swal("Text copied", "", "success", 300, false)
+                    // swal({
+                    //     title: "Text copied",
+                    //     icon: "success",
+                    //     button: false,
+                    //     timer: 2000
+                    // });
+                    // document.getElementsByClassName('confirm btn btn-lg btn-primary')[0].click()
+            }
+
+            /* Alert the copied text */
+            // alert("Copied the text: " + copyText.value);
+        }
+
+        // Copy text function
+        function copyText2() {
+            /* Get the text field */
+            var copyText = $("#analyze_result span").each(function() {
+                var $val = $(this).text();
+            });
+
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(copyText).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+            if (copyText == "") {
+                // alert("No Text Found")
+
+                swal("No text found", "", "error")
+            } else {
+                swal({
+                        showConfirmButton: false,
+                        title: 'Text copied',
+                        type: 'success',
+                        timer: 2000,
+                    })
+                    // swal("Text copied", "", "success", 300, false)
+                    // swal({
+                    //     title: "Text copied",
+                    //     icon: "success",
+                    //     button: false,
+                    //     timer: 2000
+                    // });
+                    // document.getElementsByClassName('confirm btn btn-lg btn-primary')[0].click()
+            }
+
+            /* Alert the copied text */
+            // alert("Copied the text: " + copyText.value);
+        }
+
+        // Copy text function
+        function copyText3() {
+            /* Get the text field */
+            var copyText = $("#analyze_result2 span").each(function() {
+                var $val = $(this).text();
+            });
+
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(copyText).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+
+            if (copyText == "") {
+                // alert("No Text Found")
+
+                swal("No text found", "", "error")
+            } else {
+                swal({
+                        showConfirmButton: false,
+                        title: 'Text copied',
+                        type: 'success',
+                        timer: 2000,
+                    })
+                    // swal("Text copied", "", "success", 300, false)
+                    // swal({
+                    //     title: "Text copied",
+                    //     icon: "success",
+                    //     button: false,
+                    //     timer: 2000
+                    // });
+                    // document.getElementsByClassName('confirm btn btn-lg btn-primary')[0].click()
+            }
+
+            /* Alert the copied text */
+            // alert("Copied the text: " + copyText.value);
+        }
+    </script>
+
+    <!-- upload and read files Summarization -->
+    <script>
+        var file = document.getElementById('upload1');
+        var ext = ""
+        var fileText = ""
+        var url = ""
+        var method = ""
+
+        file.onchange = function(e) {
+            ext = this.value.match(/\.([^\.]+)$/)[1];
+            console.log(ext)
+            switch (ext) {
+                case 'txt':
+                    swal({
+                        showConfirmButton: false,
+                        title: 'Text File Uploaded',
+                        type: 'success',
+                        timer: 1000,
+                    })
+                    break;
+                case 'pdf':
+                    swal({
+                        showConfirmButton: false,
+                        title: 'PDF File Uploaded',
+                        type: 'success',
+                        timer: 1000,
+                    })
+                    break;
+                default:
+                    swal("Only text files are allowed or pdf are allowed", "", "error")
+                        // alert('Only Text File are allowed');
+                    this.value = '';
+            }
+        };
+
+        document.getElementById('upload1')
+            .addEventListener('change', loadFileAsText)
+
+        function loadFileAsText() {
+            var fileToLoad = document.getElementById("upload1").files[0];
+            var fileReader = new FileReader();
+            fileReader.onload = function(fileLoadedEvent) {
+                var textFromFileLoaded = fileLoadedEvent.target.result;
+                document.getElementById("content-target").innerHTML = textFromFileLoaded
+                console.log(textFromFileLoaded)
+                document.getElementById("content-target").readOnly = true;
+                fileText = textFromFileLoaded
+                summaryReqBrowse()
+            }
+            fileReader.readAsText(fileToLoad, "UTF-8");
+        }
+
+        function summaryReqUrl() {
+            document.getElementById("summary_result_text").innerHTML = ""
+            url = document.getElementById("url1").value
+            method = document.querySelector('.summarycheckbox').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            console.log(method)
+            if (url == "") {
+                swal("Please Enter URL", "", "error")
+            } else {
+                $("#isFile1").hide()
+                $("#isInput1").hide()
+                console.log("URL: ", url)
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/summary_from_url",
+                    data: {
+                        'url': url,
+                        'method': method
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    $("#isInput1").show()
+                    document.getElementById("content-target").readOnly = true
+                    $("#loader").hide()
+                    document.getElementById("summary_result_text").innerHTML = response.data.summary
+                    document.getElementById("content-target").innerHTML = response.data.inputtext
+                }).catch(function(error) {
+                    console.log(error.response.data.message)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+        function summaryReqBrowse() {
+            $("#isUrl1").hide()
+            document.getElementById("summary_result_text").innerHTML = ""
+            method = document.querySelector('.summarycheckbox').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            console.log("text file: ", fileText)
+            $("#loader").show()
+            axios({
+                method: "post",
+                url: "/summary_from_file",
+                data: {
+                    'fileText': fileText,
+                    'method': method
+                },
+            }).then(response => {
+                console.log(response.data)
+                $("#loader").hide()
+                document.getElementById("summary_result_text").innerHTML = response.data
+            }).catch(function(error) {
+                console.log(error.response.data.message)
+                $("#loader").hide()
+            })
+        }
+
+        function summaryText() {
+            document.getElementById("summary_result_text").innerHTML = ""
+            var text = document.getElementById("content-target").value
+            method = document.querySelector('.summarycheckbox').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            if (text == "") {
+                swal("No text found", "", "error")
+            } else {
+                // show loader
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/summary_from_file",
+                    data: {
+                        'method': method,
+                        'fileText': text
+                    },
+                }).then(response => {
+                    // hide loader
+                    $("#loader").hide()
+                    console.log(response.data)
+                    document.getElementById("summary_result_text").innerHTML = response.data
+
+                }).catch(function(error) {
+                    // hide loader
+                    $("#loader").hide()
+                    console.log(error.response.data.message)
+                })
+            }
+        }
+
+        // function readFileContent(file) {
+        //     const reader = new FileReader()
+        //     return new Promise((resolve, reject) => {
+        //         console.log(event.target.value)
+        //         reader.onload = event => resolve(event.target.result)
+        //         reader.onerror = error => reject(error)
+        //         reader.readAsText(file)
+        //     })
+        // }
+
+        dropContainer1.ondragover = dropContainer1.ondragenter = function(evt) {
+            evt.preventDefault();
+        };
+
+        dropContainer1.ondrop = function(evt) {
+            // pretty simple -- but not for IE :(
+            upload1.files = evt.dataTransfer.files;
+            evt.preventDefault();
+        };
+    </script>
+
+    <!-- upload and read files sentinment analysis -->
+    <script>
+        var file = document.getElementById('upload2');
+        var fileText = ""
+        var url = ""
+        var method = ""
+
+        file.onchange = function(e) {
+            var ext = this.value.match(/\.([^\.]+)$/)[1];
+            switch (ext) {
+                case 'txt':
+                    swal({
+                        showConfirmButton: false,
+                        title: 'File Uploaded',
+                        type: 'success',
+                        timer: 1000,
+                    })
+                    break;
+                default:
+                    swal("Only text files are allowed", "", "error")
+                        // alert('Only Text File are allowed');
+                    this.value = '';
+            }
+        };
+
+        document.getElementById('upload2')
+            .addEventListener('change', loadFileAsText)
+
+        function loadFileAsText() {
+            var fileToLoad = document.getElementById("upload2").files[0];
+            var fileReader = new FileReader();
+            fileReader.onload = function(fileLoadedEvent) {
+                var textFromFileLoaded = fileLoadedEvent.target.result;
+                document.getElementById("content-target2").innerHTML = textFromFileLoaded
+                document.getElementById("content-target2").readOnly = true;
+                fileText = textFromFileLoaded
+                sentiReqBrowse()
+            }
+            fileReader.readAsText(fileToLoad, "UTF-8");
+        }
+
+        function sentiReqUrl() {
+            document.getElementById("pdf2").innerHTML = ""
+            document.getElementById("pos").innerHTML = ""
+            document.getElementById("neg").innerHTML = ""
+            document.getElementById("neu").innerHTML = ""
+            url = document.getElementById("url2").value
+            method = document.querySelector('.summarycheckbox2').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            if (url == "") {
+                swal("Please Enter URL", "", "error")
+            } else {
+                $("#isFile2").hide()
+                $("#isInput2").hide()
+                console.log("URL: ", method)
+                console.log("URL: ", url)
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/sentiment_from_url",
+                    data: {
+                        'url': url,
+                        'method': method
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    $("#isInput2").show()
+                    document.getElementById("content-target2").readOnly = true
+                    $("#loader").hide()
+                    document.getElementById("pdf2").innerHTML = response.data.sentences
+                    document.getElementById("pos").innerHTML = response.data.Pos
+                    document.getElementById("neg").innerHTML = response.data.Neg
+                    document.getElementById("neu").innerHTML = response.data.Neu
+                    document.getElementById("content-target2").innerHTML = response.data.inputtext
+                }).catch(function(error) {
+                    console.log(error)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+        function sentiReqBrowse() {
+            $("#isUrl2").hide()
+            document.getElementById("pdf2").innerHTML = ""
+            document.getElementById("pos").innerHTML = ""
+            document.getElementById("neg").innerHTML = ""
+            document.getElementById("neu").innerHTML = ""
+            method = document.querySelector('.summarycheckbox2').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            console.log("URL: ", method)
+            console.log("text file: ", fileText)
+            $("#loader").show()
+            axios({
+                method: "post",
+                url: "/sentiment_from_file",
+                data: {
+                    'fileText': fileText,
+                    'method': method
+                },
+            }).then(response => {
+                console.log(response.data)
+                $("#loader").hide()
+                document.getElementById("pdf2").innerHTML = response.data.sentences
+                document.getElementById("pos").innerHTML = response.data.Pos
+                document.getElementById("neg").innerHTML = response.data.Neg
+                document.getElementById("neu").innerHTML = response.data.Neu
+            }).catch(function(error) {
+                console.log(error.response.data.message)
+                $("#loader").hide()
+            })
+        }
+
+        function sentiText() {
+            document.getElementById("pdf2").innerHTML = ""
+            document.getElementById("pos").innerHTML = ""
+            document.getElementById("neg").innerHTML = ""
+            document.getElementById("neu").innerHTML = ""
+            var text = document.getElementById("content-target2").value
+            method = document.querySelector('.summarycheckbox2').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            if (text == "") {
+                swal("No text found", "", "error")
+            } else {
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/sentiment_from_file",
+                    dataType: "text",
+                    data: {
+                        'method': method,
+                        'fileText': text
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    $("#loader").hide()
+                        //document.getElementById("content-target").innerHTML = response.input
+                    document.getElementById("pdf2").innerHTML = response.data.sentences
+                    document.getElementById("pos").innerHTML = response.data.Pos
+                    document.getElementById("neg").innerHTML = response.data.Neg
+                    document.getElementById("neu").innerHTML = response.data.Neu
+                }).catch(function(error) {
+                    console.log(error.response.data.message)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+
+        dropContainer2.ondragover = dropContainer2.ondragenter = function(evt) {
+            evt.preventDefault();
+        };
+
+        dropContainer2.ondrop = function(evt) {
+            // pretty simple -- but not for IE :(
+            upload2.files = evt.dataTransfer.files;
+            evt.preventDefault();
+        };
+    </script>
+
+    <!-- upload and read files prespective analysis -->
+    <script>
+        var file = document.getElementById('upload3');
+        var fileText = ""
+        var url = ""
+
+        file.onchange = function(e) {
+            var ext = this.value.match(/\.([^\.]+)$/)[1];
+            switch (ext) {
+                case 'txt':
+                    swal({
+                        showConfirmButton: false,
+                        title: 'File Uploaded',
+                        type: 'success',
+                        timer: 1000,
+                    })
+                    break;
+                default:
+                    swal("Only text files are allowed", "", "error")
+                        // alert('Only Text File are allowed');
+                    this.value = '';
+            }
+        };
+
+        document.getElementById('upload3')
+            .addEventListener('change', loadFileAsText)
+
+        function loadFileAsText() {
+            var fileToLoad = document.getElementById("upload3").files[0];
+            var fileReader = new FileReader();
+            fileReader.onload = function(fileLoadedEvent) {
+                var textFromFileLoaded = fileLoadedEvent.target.result;
+                document.getElementById("content-target3").innerHTML = textFromFileLoaded
+                document.getElementById("content-target3").readOnly = true;
+                fileText = textFromFileLoaded
+                presReqBrowse()
+            }
+            fileReader.readAsText(fileToLoad, "UTF-8");
+        }
+
+        function presReqUrl() {
+            document.getElementById("pdf3").innerHTML = ""
+            document.getElementById("threat").innerHTML = ""
+            document.getElementById("profanity").innerHTML = ""
+            document.getElementById("identity").innerHTML = ""
+            document.getElementById("sexual").innerHTML = ""
+            document.getElementById("toxicity").innerHTML = ""
+            document.getElementById("flirt").innerHTML = ""
+            document.getElementById("insult").innerHTML = ""
+            url = document.getElementById("url3").value
+            if (url == "") {
+                swal("Please Enter URL", "error")
+            } else {
+
+                $("#isFile3").hide()
+                $("#isInput3").hide()
+                console.log("URL: ", url)
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/perspective_from_url",
+                    data: {
+                        'url': url
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    $("#loader").hide()
+                        //document.getElementById("content-target").innerHTML = response.input
+                    document.getElementById("pdf3").innerHTML = response.data.sentences
+                    document.getElementById("threat").innerHTML = response.data.threat
+                    document.getElementById("profanity").innerHTML = response.data.profanity
+                    document.getElementById("identity").innerHTML = response.data.identity
+                    document.getElementById("sexual").innerHTML = response.data.sexual
+                    document.getElementById("toxicity").innerHTML = response.data.toxicity
+                    document.getElementById("flirt").innerHTML = response.data.flirt
+                    document.getElementById("insult").innerHTML = response.data.insult
+                }).catch(function(error) {
+                    console.log(error.response.data.message)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+        function presReqBrowse() {
+            $("#isUrl3").hide()
+            document.getElementById("pdf3").innerHTML = ""
+            document.getElementById("threat").innerHTML = ""
+            document.getElementById("profanity").innerHTML = ""
+            document.getElementById("identity").innerHTML = ""
+            document.getElementById("sexual").innerHTML = ""
+            document.getElementById("toxicity").innerHTML = ""
+            document.getElementById("flirt").innerHTML = ""
+            document.getElementById("insult").innerHTML = ""
+            console.log("text file: ", fileText)
+            $("#loader").show()
+            axios({
+                method: "post",
+                url: "/perspective_from_file",
+                data: {
+                    'fileText': fileText
+                },
+            }).then(response => {
+                console.log(response.data)
+                $("#loader").hide()
+                document.getElementById("pdf3").innerHTML = response.data.sentences
+                document.getElementById("threat").innerHTML = response.data.threat
+                document.getElementById("profanity").innerHTML = response.data.profanity
+                document.getElementById("identity").innerHTML = response.data.identity
+                document.getElementById("sexual").innerHTML = response.data.sexual
+                document.getElementById("toxicity").innerHTML = response.data.toxicity
+                document.getElementById("flirt").innerHTML = response.data.flirt
+                document.getElementById("insult").innerHTML = response.data.insult
+            }).catch(function(error) {
+                console.log(error.response.data.message)
+                $("#loader").hide()
+            })
+        }
+
+        function presText() {
+            document.getElementById("pdf3").innerHTML = ""
+            document.getElementById("threat").innerHTML = ""
+            document.getElementById("profanity").innerHTML = ""
+            document.getElementById("identity").innerHTML = ""
+            document.getElementById("sexual").innerHTML = ""
+            document.getElementById("toxicity").innerHTML = ""
+            document.getElementById("flirt").innerHTML = ""
+            document.getElementById("insult").innerHTML = ""
+            var text = document.getElementById("content-target3").value
+            if (text == "") {
+                swal("No text found", "", "error")
+            } else {
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/perspective_from_file",
+                    dataType: "text",
+                    data: {
+                        'fileText': text
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    $("#loader").hide()
+                        //document.getElementById("content-target").innerHTML = response.input
+                    document.getElementById("pdf3").innerHTML = response.data.sentences
+                    document.getElementById("threat").innerHTML = response.data.threat
+                    document.getElementById("profanity").innerHTML = response.data.profanity
+                    document.getElementById("identity").innerHTML = response.data.identity
+                    document.getElementById("sexual").innerHTML = response.data.sexual
+                    document.getElementById("toxicity").innerHTML = response.data.toxicity
+                    document.getElementById("flirt").innerHTML = response.data.flirt
+                    document.getElementById("insult").innerHTML = response.data.insult
+                }).catch(function(error) {
+                    console.log(error.response.data.message)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+        dropContainer3.ondragover = dropContainer3.ondragenter = function(evt) {
+            evt.preventDefault();
+        };
+
+        dropContainer3.ondrop = function(evt) {
+            // pretty simple -- but not for IE :(
+            upload3.files = evt.dataTransfer.files;
+            evt.preventDefault();
+        };
+    </script>
+
+    <!-- pdf cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+    <!-- word cdn -->
+    <script src="https://unpkg.com/docx@4.0.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <!-- txt cdn -->
+    <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js"></script>
+
+    <!-- export files summarization -->
+    <script>
+        var which = 'pdf'
+
+        function download() {
+            let list = document.getElementById('export-data');
+            var listName = list.options[list.selectedIndex].value
+            which = listName
+        }
+
+        function saveFile() {
+            $('#exampleModalCenter').modal('hide')
+
+            var text = document.getElementById("summary_result_text").innerHTML;
+
+            if (which == 'pdf') {
+
+                // var doc = new jsPDF()
+
+                var lMargin = 15; //left margin in mm
+                var rMargin = 15; //right margin in mm
+                var pdfInMM = 210;
+
+                // doc.text('Summary', 10, 10)
+
+                var doc = new jsPDF("p", "mm", "a4");
+                var paragraph = text
+                var lines = doc.splitTextToSize(paragraph, (pdfInMM - lMargin - rMargin));
+                doc.text(lMargin, 20, lines);
+                doc.save('summary.pdf')
+            } else if (which == 'word') {
+
+                const doc = new Document();
+
+                const paragraph = new Paragraph(text);
+                doc.addParagraph(paragraph);
+
+                const packer = new Packer();
+
+                packer.toBlob(doc).then(blob => {
+                    console.log(blob);
+                    saveAs(blob, "summary.docx");
+                });
+            } else {
+                var blob = new Blob([text], {
+                    type: "text/plain;charset=utf-8"
+                });
+                saveAs(blob, "summary.txt");
+            }
+        }
+    </script>
+
+    <!-- export files sentinment analysis -->
+    <script>
+        var which = 'pdf'
+
+        function download2() {
+            let list = document.getElementById('export-data2');
+            var listName = list.options[list.selectedIndex].value
+            which = listName
+        }
+
+        function saveFile2() {
+            $('#exampleModalCenter2').modal('hide')
+            var text = ""
+            $("#analyze_result span").each(function() {
+                text += $(this).text() + '. ';
+            });
+
+            if (which == 'pdf') {
+
+                // var doc = new jsPDF()
+
+                // var lMargin = 15; //left margin in mm
+                // var rMargin = 15; //right margin in mm
+                // var pdfInMM = 210;
+
+                // // doc.text('Summary', 10, 10)
+
+                // var doc = new jsPDF("p", "mm", "a4");
+                // var paragraph = text
+                // var lines = doc.splitTextToSize(paragraph, (pdfInMM - lMargin - rMargin));
+                // doc.text(lMargin, 20, lines);
+
+                //new code
+                var pdf = new jsPDF('p', 'pt', 'letter');
+
+                pdf.setFillColor(0, 255, 255, 0);
+                // source can be HTML-formatted string, or a reference
+                // to an actual DOM element from which the text will be scraped.
+
+                var newItem = document.createElement("h3");
+                var textnode = document.createTextNode("Sentiment Analysis");
+                newItem.appendChild(textnode);
+
+                // var att = document.createAttribute("class");
+                // att.value = "text-align";
+                // newItem.setAttributeNode(att);
+
+                var list = document.getElementById("pdf2");
+                list.insertBefore(newItem, list.childNodes[0]);
+
+                // draw line
+                // pdf.setDrawColor(255, 0, 0)
+                // pdf.setLineWidth(1)
+                // pdf.line(20, 35, 180, 35)
+
+                source = $('#pdf2')[0];
+                console.log(source)
+
+                // we support special element handlers. Register them with jQuery-style 
+                // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+                // There is no support for any other type of selectors 
+                // (class, of compound) at this time.
+                specialElementHandlers = {
+                    // element with id of "bypass" - jQuery style selector
+                    '#bypassme': function(element, renderer) {
+                        // true = "handled elsewhere, bypass text extraction"
+                        return true
+                    }
+                };
+                margins = {
+                    top: 80,
+                    bottom: 60,
+                    left: 40,
+                    width: 522
+                };
+                // all coords and widths are in jsPDF instance's declared units
+                // 'inches' in this case
+                pdf.fromHTML(
+                    source, // HTML string or DOM elem ref.
+                    margins.left, // x coord
+                    margins.top, { // y coord
+                        'width': margins.width, // max width of content on PDF
+                        'elementHandlers': specialElementHandlers
+                    },
+
+                    function(dispose) {
+                        // dispose: object with X, Y of the last line add to the PDF 
+                        //          this allow the insertion of new lines after html
+                        pdf.save('Sentiment.pdf');
+                    }, margins);
+            } else if (which == 'word') {
+
+                const doc = new Document();
+
+                const paragraph = new Paragraph(text);
+                doc.addParagraph(paragraph);
+
+                const packer = new Packer();
+
+                packer.toBlob(doc).then(blob => {
+                    console.log(blob);
+                    saveAs(blob, "sentiment.docx");
+                });
+            } else {
+                var blob = new Blob([text], {
+                    type: "text/plain;charset=utf-8"
+                });
+                saveAs(blob, "sentiment.txt");
+            }
+        }
+    </script>
+
+    <!-- export files prespective analysis -->
+    <script>
+        var which = 'pdf'
+
+        function download3() {
+            let list = document.getElementById('export-data3');
+            var listName = list.options[list.selectedIndex].value
+            which = listName
+        }
+
+        function saveFile3() {
+            $('#exampleModalCenter3').modal('hide')
+
+            var text = ""
+            $("#analyze_result2 span").each(function() {
+                text += $(this).text() + '. ';
+            });
+
+
+            if (which == 'pdf') {
+
+                // old code
+                // var doc = new jsPDF()
+
+                // var lMargin = 15; //left margin in mm
+                // var rMargin = 15; //right margin in mm
+                // var pdfInMM = 210;
+
+                // // doc.text('Summary', 10, 10)
+
+                // var doc = new jsPDF("p", "mm", "a4");
+                // var paragraph = text
+                // var lines = doc.splitTextToSize(paragraph, (pdfInMM - lMargin - rMargin));
+                // doc.text(lMargin, 20, lines);
+                // doc.save('summary.pdf')
+
+                //new code
+                var pdf = new jsPDF('p', 'pt', 'letter');
+                // source can be HTML-formatted string, or a reference
+                // to an actual DOM element from which the text will be scraped.
+                var newItem = document.createElement("h3");
+                var textnode = document.createTextNode("Prespective");
+                newItem.appendChild(textnode);
+
+                // var att = document.createAttribute("class");
+                // att.value = "text-align";
+                // newItem.setAttributeNode(att);
+
+                var list = document.getElementById("pdf3");
+                list.insertBefore(newItem, list.childNodes[0]);
+
+                source = $('#pdf3')[0];
+
+                // we support special element handlers. Register them with jQuery-style 
+                // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+                // There is no support for any other type of selectors 
+                // (class, of compound) at this time.
+                specialElementHandlers = {
+                    // element with id of "bypass" - jQuery style selector
+                    '#bypassme': function(element, renderer) {
+                        // true = "handled elsewhere, bypass text extraction"
+                        return true
+                    }
+                };
+                margins = {
+                    top: 80,
+                    bottom: 60,
+                    left: 40,
+                    width: 522
+                };
+                // all coords and widths are in jsPDF instance's declared units
+                // 'inches' in this case
+                pdf.fromHTML(
+                    source, // HTML string or DOM elem ref.
+                    margins.left, // x coord
+                    margins.top, { // y coord
+                        'width': margins.width, // max width of content on PDF
+                        'elementHandlers': specialElementHandlers
+                    },
+
+                    function(dispose) {
+                        // dispose: object with X, Y of the last line add to the PDF 
+                        //          this allow the insertion of new lines after html
+                        pdf.save('Prespective.pdf');
+                    }, margins);
+            } else if (which == 'word') {
+
+                const doc = new Document();
+
+                const paragraph = new Paragraph(text);
+                doc.addParagraph(paragraph);
+
+                const packer = new Packer();
+
+                packer.toBlob(doc).then(blob => {
+                    console.log(blob);
+                    saveAs(blob, "summary.docx");
+                });
+            } else {
+                var blob = new Blob([text], {
+                    type: "text/plain;charset=utf-8"
+                });
+                saveAs(blob, "summary.txt");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--====== Title ======-->
+    <title>NewsHunt NLP</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png')}}">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/LineIcons.css')}}">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/magnific-popup.css')}}">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/default.css')}}">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+
+    <!-- Material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- tabs material -->
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--====== PRELOADER PART START ======-->
+
+    <div class="preloader">
+        <div class="loader_34">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preloader" style="background: rgba(255,255,255,.7);" id="loader">
+        <div class="loader_34">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== PRELOADER ENDS START ======-->
+
+    <!-- vue app -->
+
+    <div id="app">
+
+        <!-- ====== HEADER PART START ======-->
+
+        <header id="home" class="header-area">
+            <div class="navigation fixed-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav class="navbar navbar-expand-lg">
+                                <a class="navbar-brand" href="#nlp">
+                                    <img src="{{ url_for('static', filename='images/logo.png')}}" width="180"
+                                        height="42" alt="Logo">
+                                </a>
+                                <!-- Logo -->
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <a class="toggler-icon"></a>
+                                    <a class="toggler-icon"></a>
+                                    <a class="toggler-icon"></a>
+                                </button>
+
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"><a class="page-scroll" href="#nlp">NLP</a></li>
+                                        <li class="nav-item"><a class="page-scroll" href="#about">About</a></li>
+                                        <li class="nav-item"><a class="page-scroll" href="#blog">Team</a></li>
+                                        <li class="nav-item"><a class="page-scroll" href="#contact">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <!-- navbar collapse -->
+                            </nav>
+                            <!-- navbar -->
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- container -->
+            </div>
+            <!-- navigation -->
+
+            <!-- header content -->
+        </header>
+
+        <!--====== HEADER PART ENDS ====== -->
+
+        <!--====== ABOUT PART START ======-->
+
+        <section id="nlp" class="about-area pt-125 pb-130">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center">
+                        <h2 class="title">Natural Language Processing</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="font-weight: bold" id="exampleModalLongTitle">Save Files
+                                    in below Options</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <select class="form-control" onchange="download()" name="" id="export-data">
+                                    <option value="pdf">PDF File</option>
+                                    <option value="word">WORD FILE</option>
+                                    <option value="txt">TEXT FILE</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="saveFile()" style="background: #754ef9; border: 0px"
+                                    class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 2 -->
+                <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="font-weight: bold" id="exampleModalLongTitle">Save Files
+                                    in below Options</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <select class="form-control" onchange="download2()" name="" id="export-data2">
+                                    <option value="pdf">PDF File</option>
+                                    <option value="word">WORD FILE</option>
+                                    <option value="txt">TEXT FILE</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="saveFile2()" style="background: #754ef9; border: 0px"
+                                    class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal 3 -->
+                <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="font-weight: bold" id="exampleModalLongTitle">Save Files
+                                    in below Options</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <select class="form-control" onchange="download3()" name="" id="export-data3">
+                                    <option value="pdf">PDF File</option>
+                                    <option value="word">WORD FILE</option>
+                                    <option value="txt">TEXT FILE</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="saveFile3()" style="background: #754ef9; border: 0px"
+                                    class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <div class="tabby-tab">
+                        <input type="radio" v-model="mainTabs" value="1" id="tab-1" name="tabby-tabs" checked>
+                        <label for="tab-1" class="tabs-color">Summarization</label>
+                        <div class="tabby-content">
+                            <div style="display: none; justify-content: center; margin: 16px 0px">
+                                <label class="methodRadio" style="margin: 0px 8px">Method 1
+                                    <input class="summarycheckbox" v-model="summaryMethod" value="1" type="radio"
+                                        checked="checked" name="radio">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="methodRadio" style="margin: 0px 8px">Method 2
+                                    <input class="summarycheckbox" v-model="summaryMethod" value="2" type="radio"
+                                        name="radio">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div id="isUrl1" class="form-group" style="display: inline-flex; width: 100%; margin: 16px 0px">
+                                <!-- Search form -->
+                                <div class="has-feedback has-feedback-left" style="width: 100%; opacity: 1">
+                                    <input id="url1" v-model="sumInput" class="form-control" type="text"
+                                        placeholder="Your Original URL Here..." aria-label="Search">
+                                </div>
+                                <button class="btn btn-primary" onclick="summaryReqUrl()"
+                                    style="background: #754ef9; border: 0px; margin-left: 10px;">
+                                    Convert </button>
+                            </div>
+
+                            <div id="isFile1" id="dropContainer1" accept=".txt"
+                                style="background: rgba(255, 255, 255, 0.6);border-style: dashed; border-color: rgba(112, 112, 112, 0.2); text-align: center; padding: 50px; border-radius: 5px">
+                                <input type="file" accept=".txt" id="upload1" name="browse"
+                                    style="visibility: hidden; width: 1px; height: 1px;" multiple /> <span
+                                    class="b-color" style="margin-right: 8px;">Drag a file here or </span>
+                                <a href="" onclick="document.getElementById('upload1').click(); return false"><span
+                                        style="color: #754ef9;">browse</span></a>
+                                <span class="b-color" style="margin-left: 8px">for file to upload</span>
+                            </div>
+
+                            <div id="isInput1" style="display:inline-block; position:relative; width: 100%">
+                                <h4 style="margin-top: 8px">Input here</h4>
+                                <textarea id="content-target" v-model="inputTextarea1"
+                                    style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; min-height: 220px; width: 100%; padding: 16px; border-radius: 5px; margin-bottom: 8px; border: 1px solid #ced4da;"></textarea>
+                                <button id="isBtn1" type="button" onclick="summaryText()"
+                                    style="background: #754ef9; border: 0px; margin-bottom: 8px; display: none"
+                                    class="btn btn-primary" data-toggle="modal">
+                                    Convert
+                                </button>
+                            </div>
+
+                            <div id="isReadInput" style="display:none; position:relative; width: 100%">
+                                <h4>Input</h4>
+                                <p id="read_input"
+                                    style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; height: 220px; overflow-y: auto; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da; margin-bottom: 8px">
+                                </p>
+                            </div>
+
+                            <div style="display:inline-block; position:relative; width: 100%">
+                                <h4>Summary Result</h4>
+                                <div id="summary_result"
+                                    style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; height: 220px; overflow-y: auto; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da; margin-bottom: 8px">
+                                    <button onclick="copyText()" class="btn btn-link"
+                                        style="color: #754ef9; position:absolute;bottom:8px;right:8px;"><span
+                                            class="material-icons">content_copy</span></button>
+                                    <p id="summary_result_text" style="color: black">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="main-btn" data-toggle="modal"
+                                data-target="#exampleModalCenter">
+                                Export
+                            </button>
+
+                            <div id="isSummaryReset"
+                                style="display: none; font-size: 18px;margin-top: 16px; text-align: center;">Do you want
+                                to Summarize another one
+                                <button class="btn btn-primary" @click="resetSummary()">Yes</button>
+                                <button class="btn btn-danger">No</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tabby-tab">
+                        <input type="radio" v-model="mainTabs" value="2" id="tab-2" name="tabby-tabs">
+                        <label for="tab-2" class="tabs-color">Sentiment</label>
+                        <div class="tabby-content">
+                            <div style="display: flex; justify-content: center; margin: 16px 0px">
+                                <label class="methodRadio" style="margin: 0px 8px">Method 1
+                                    <input class="summarycheckbox2" v-model="sentiMethod" value="1" type="radio"
+                                        checked="checked" name="radio3">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="methodRadio" style="margin: 0px 8px">Method 2
+                                    <input class="summarycheckbox2" v-model="sentiMethod" value="2" type="radio"
+                                        name="radio3">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div id="isUrl2" class="form-group" style="display: inline-flex; width: 100%">
+                                <!-- Search form -->
+                                <div class="has-feedback has-feedback-left" style="width: 100%; opacity: 1">
+                                    <input id="url2" v-model="senInput" class="form-control" type="text"
+                                        placeholder="Your Original URL Here..." aria-label="Search">
+                                </div>
+                                <button class="btn btn-primary" onclick="sentiReqUrl()"
+                                    style="background: #754ef9; border: 0px; margin-left: 10px;">
+                                    Analyze </button>
+                            </div>
+
+                            <div id="isFile2" id="dropContainer2" accept=".txt"
+                                style="background: rgba(255, 255, 255, 0.6);border-style: dashed; border-color: rgba(112, 112, 112, 0.2); text-align: center; padding: 50px; border-radius: 5px">
+                                <input type="file" accept=".txt" id="upload2" name="browse"
+                                    style="visibility: hidden; width: 1px; height: 1px; " multiple /> <span
+                                    class="b-color" style="margin-right: 8px;">Drag a file here or </span>
+                                <a href="" onclick="document.getElementById('upload2').click(); return false"><span
+                                        style="color: #754ef9;">browse</span></a>
+                                <span class="b-color" style="margin-left: 8px">for file to upload</span>
+                            </div>
+
+                            <div id="isReadInput2" style="display:none; position:relative; width: 100%">
+                                <h4>Input</h4>
+                                <p id="read_input2"
+                                    style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; height: 220px; overflow-y: auto; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da; margin-bottom: 8px">
+                                </p>
+                            </div>
+
+                            <div id="isInput2" style="display:inline-block; position:relative; width: 100%">
+
+                                <h4 style="margin-top: 8px">Input here</h4>
+                                <textarea id="content-target2" v-model="inputTextarea2"
+                                    style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; min-height: 220px; width: 100%; padding: 16px; border-radius: 5px; margin-bottom: 8px; border: 1px solid #ced4da"></textarea>
+                                <button id="isBtn2" type="button" onclick="sentiText()"
+                                    style="background: #754ef9; border: 0px; margin-bottom: 8px; display: none"
+                                    class="btn btn-primary" data-toggle="modal">
+                                    Analyze
+                                </button>
+                            </div>
+
+                            <div style="display:inline-block; position:relative; width: 100%">
+                                <h4>Analyze Result By Sentences</h4>
+                                <div id="analyze_result"
+                                    style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; height: 220px; overflow-y: auto; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da; ">
+                                    <button onclick="copyText2()" class="btn btn-link"
+                                        style="color: #754ef9; position:absolute;bottom:8px;right:8px;"><i
+                                            class="material-icons">content_copy</i></button>
+                                    <p id="pdf2">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                style="background:rgba(255, 255, 255, 0.6); margin-top: 8px; margin-bottom: 8px; min-height: 45px; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da; ">
+                                <span style="font-weight: 600;font-size: 22px; color: black;">Overall Percentage (%) :
+                                </span>
+                                <span @click="showNeg()" style="color: black"><button type="button"
+                                        style="border: 2px solid #F90029; margin: 0px 32px" class="btn">
+                                        <span class="badge badge-danger" id="neg"
+                                            style="margin-right: 8px"></span>Negative
+                                    </button>
+                                </span>
+                                <span @click="showPos()" style="color: black"><button type="button"
+                                        style="border: 2px solid #3B8701; margin: 0px 32px" class="btn">
+                                        <span class="badge badge-success" id="pos"
+                                            style="margin-right: 8px"></span>Positive
+                                    </button>
+                                </span>
+                                <span @click="showNeu()" style="color: black"><button type="button"
+                                        style="border: 2px solid #FFA72F; margin: 0px 32px" class="btn">
+                                        <span class="badge badge-warning" id="neu"
+                                            style="margin-right: 8px"></span>Netural
+                                    </button>
+                                </span>
+                                <span @click="showAll()" style="color: black"><button type="button"
+                                        style="border: 2px solid #000; margin: 0px 32px" class="btn">
+                                        Show All
+                                    </button>
+                                </span>
+                            </div>
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="main-btn" data-toggle="modal"
+                                data-target="#exampleModalCenter2">
+                                Export
+                            </button>
+
+                            <div id="isSentiReset"
+                                style="display: none; font-size: 18px;margin-top: 16px; text-align: center;">Do you
+                                want to Sentiment
+                                another one
+                                <button class="btn btn-primary" @click="resetSenti()">Yes</button>
+                                <button class="btn btn-danger">No</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tabby-tab">
+                        <input type="radio" v-model="mainTabs" value="3" id="tab-3" name="tabby-tabs">
+                        <label for="tab-3" class="tabs-color">Deep Analysis</label>
+                        <div class="tabby-content">
+                            <div id="isUrl3" class="form-group"
+                                style="display: inline-flex; width: 100%; margin: 16px 0px">
+                                <!-- Search form -->
+                                <div class="has-feedback has-feedback-left" style="width: 100%; opacity: 1">
+                                    <input id="url3" v-model="preInput" class="form-control" type="text"
+                                        placeholder="Your Original URL Here..." aria-label="Search">
+                                </div>
+                                <button class="btn btn-primary" onclick="presReqUrl()"
+                                    style="background: #754ef9; border: 0px; margin-left: 10px;">
+                                    Analyze </button>
+                            </div>
+
+                            <div id="isFile3" id="dropContainer3" accept=".txt"
+                                style="margin-top: 8px;background: rgba(255, 255, 255, 0.6);border-style: dashed; border-color: rgba(112, 112, 112, 0.2); text-align: center; padding: 50px; border-radius: 5px">
+                                <input type="file" accept=".txt" id="upload3" name="browse"
+                                    style="visibility: hidden; width: 1px; height: 1px; " multiple /> <span
+                                    class="b-color" style="margin-right: 8px;">Drag a file here or </span>
+                                <a href="" onclick="document.getElementById('upload3').click(); return false"><span
+                                        style="color: #754ef9;">browse</span></a>
+                                <span class="b-color" style="margin-left: 8px">for file to upload</span>
+                            </div>
+
+                            <div id="isInput3" style="display:inline-block; position:relative; width: 100%">
+                                <h4 style="margin-top: 8px">Input here</h4>
+                                <textarea id="content-target3" v-model="inputTextarea3"
+                                    style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; min-height: 220px; width: 100%; padding: 16px; border-radius: 5px; margin-bottom: 8px; border: 1px solid #ced4da;"></textarea>
+                                <button id="isBtn3" type="button" onclick="presText()"
+                                    style="background: #754ef9; border: 0px; margin-bottom: 8px; display: none"
+                                    class="btn btn-primary" data-toggle="modal">
+                                    Analyze
+                                </button>
+                            </div>
+
+                            <div id="isReadInput3" style="display:none; position:relative; width: 100%">
+                                <h4>Input</h4>
+                                <p id="read_input3"
+                                    style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; height: 220px; overflow-y: auto; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da; margin-bottom: 8px">
+                                </p>
+                            </div>
+
+                            <div style="display:inline-block; position:relative; width: 100%">
+                                <h4>Analyze Result By Sentences</h4>
+                                <div id="analyze_result2"
+                                    style="background:rgba(255, 255, 255, 0.6); margin-top: 16px; height: 220px; overflow-y: auto; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da; ">
+                                    <button onclick="copyText3()" class="btn btn-link"
+                                        style="color: #754ef9;position:absolute;bottom:8px;right:8px;"><i
+                                            class="material-icons">content_copy</i></button>
+                                    <p id="pdf3"></p>
+                                </div>
+                            </div>
+                            <h4 style="margin-top: 8px">Overall Percentage (%) : </h4>
+                            <div
+                                style="background:rgba(255, 255, 255, 0.6); margin-top: 8px; margin-bottom: 8px; min-height: 45px; width: 100%; padding: 16px; border-radius: 5px; border: 1px solid #ced4da ">
+                                <span @click="showToxicity()" style="color: black"><button type="button"
+                                        style="margin-top: 3px; border: 2px solid #9400D3" class="btn">
+                                        <span class="badge badge-danger" id="toxicity"
+                                            style="margin-right: 8px; background: #9400D3"></span>Toxicity
+                                    </button>
+                                </span>
+                                <span @click="showInsult()" style="color: black"><button type="button"
+                                        style="margin-top: 3px; border: 2px solid #ffc107" class="btn">
+                                        <span class="badge badge-success" id="insult"
+                                            style="margin-right: 8px; background: #ffc107"></span>Insult
+                                    </button>
+                                </span>
+                                <span @click="showProfanity()" style="color: black"><button type="button"
+                                        style="margin-top: 3px; border: 2px solid #FF7F00" class="btn">
+                                        <span class="badge badge-warning" id="profanity"
+                                            style="margin-right: 8px; background: #FF7F00"></span>Profanity
+                                    </button>
+                                </span>
+                                <span @click="showSexExplict()" style="color: black"><button type="button"
+                                        style="margin-top: 3px; border: 2px solid #0000FF" class="btn">
+                                        <span class="badge badge-danger" id="sexual"
+                                            style="margin-right: 8px; background: #0000FF"></span>Sexuality Explict
+                                    </button>
+                                </span>
+                                <span @click="showIdAttack()" style="color: black"><button type="button"
+                                        style="margin-top: 3px; border: 2px solid #4B0082" class="btn">
+                                        <span class="badge badge-success" id="identity"
+                                            style="margin-right: 8px; background: #4B0082"></span>Identity Attack
+                                    </button>
+                                </span>
+                                <span @click="showThreat()" style="color: black"><button type="button"
+                                        style="margin-top: 3px; border: 2px solid #FF0000" class="btn">
+                                        <span class="badge badge-warning" id="threat"
+                                            style="margin-right: 8px; background: #FF0000"></span>Threat
+                                    </button>
+                                </span>
+                                <span @click="showFiltration()" style="color: white"><button type="button"
+                                        style="margin-top: 3px; border: 2px solid #28a745" class="btn">
+                                        <span class="badge badge-warning" id="flirt"
+                                            style="margin-right: 8px; background: #28a745"></span>Flirtation
+                                    </button>
+                                </span>
+                                <span @click="showSevere()" style="color: white"><button type="button"
+                                        style="margin-top: 3px; border: 2px solid #a57f1f" class="btn">
+                                        <span class="badge badge-warning" id="severe"
+                                            style="margin-right: 8px; background: #a57f1f"></span>Severe Toxicity
+                                    </button>
+                                </span>
+                                <span @click="showAllDA()" style="color: 000"><button type="button"
+                                        style="margin-top: 3px; border: 2px solid #000" class="btn">
+                                        Show All
+                                    </button>
+                                </span>
+                            </div>
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="main-btn" data-toggle="modal"
+                                data-target="#exampleModalCenter3">
+                                Export
+                            </button>
+
+                            <div id="isPresReset" style="display:none; 18px;margin-top: 16px; text-align: center;">Do
+                                you
+                                want to Deep Analyze
+                                another one
+                                <button class="btn btn-primary" @click="resetPres()">Yes</button>
+                                <button class="btn btn-danger">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--====== ABOUT PART ENDS ======-->
+
+        <section id="about" class="about-area pt-125 pb-130">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-title text-center">
+                            <h2 class="title">About Us</h2>
+                            <p>Natural Language Processing is tool provided by newshunt.io which facilities you with
+                                below features:</p>
+                        </div>
+                        <!-- section title -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="about-content mt-50">
+                            <h5 class="about-title">Summarization</h5>
+                            <p>you can perform your summarization with two different methods(datasets).Along with that
+                                you can do your summarization from a link or by uploading a file.</p>
+
+                            <h5 class="about-title">Sentiment Analysis</h5>
+                            <p>Sentiment Analysis can be done with two different methods(datasets).Along with that you
+                                can do your Analysis from a link or by uploading a file.</p>
+
+                            <h5 class="about-title">Deep Analysis</h5>
+                            <p>Do your Deep analysis. upload a file or provide a link.</p>
+
+                        </div>
+                        <!-- about content -->
+                    </div>
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </section>
+
+        <!--====== BLOG PART ENDS ======-->
+
+        <!--====== BLOG PART START ======-->
+
+        <section id="blog" class="blog-area pt-40 pb-130">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-title text-center pb-25">
+                            <h2 class="title">Over Experts Team</h2>
+                        </div>
+                        <!-- section title -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-team text-center mt-30 wow fadeInUp" data-wow-duration="1.5s"
+                            data-wow-delay="0.4s"
+                            style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;">
+                            <div class="team-image">
+                                <img src="{{ url_for('static', filename='images/team/team-1.jpg')}}" height="300"
+                                    alt="Team">
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name"><a href="#">Imad Ahmad</a></h4>
+                                <span class="sub-title">Principle Developer NLP</span>
+                                <ul class="social mt-25">
+                                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                                    <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single team -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-team text-center mt-30 wow fadeInUp" data-wow-duration="1.5s"
+                            data-wow-delay="0.8s"
+                            style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.8s; animation-name: fadeInUp;">
+                            <div class="team-image">
+                                <img src="{{ url_for('static', filename='images/team/team-2.jpg')}}" height="300"
+                                    alt="Team">
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name"><a href="#">Dr Naveed Ahmad</a></h4>
+                                <span class="sub-title">CEO &amp; Founder</span>
+                                <ul class="social mt-25">
+                                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                                    <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single team -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-team text-center mt-30 wow fadeInUp" data-wow-duration="1.5s"
+                            data-wow-delay="1.2s"
+                            style="visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInUp;">
+                            <div class="team-image">
+                                <img src="{{ url_for('static', filename='images/team/team-3.jpg')}}" height="300"
+                                    alt="Team">
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name"><a href="#">Muhammad Shoaib</a></h4>
+                                <span class="sub-title">Frontend Developer</span>
+                                <ul class="social mt-25">
+                                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                                    <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single team -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-team text-center mt-30 wow fadeInUp" data-wow-duration="1.5s"
+                            data-wow-delay="1.6s"
+                            style="visibility: visible; animation-duration: 1.5s; animation-delay: 1.6s; animation-name: fadeInUp;">
+                            <div class="team-image">
+                                <img src="{{ url_for('static', filename='images/team/team-4.jpg')}}" height="300"
+                                    alt="Team">
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name"><a href="#">Mubashir</a></h4>
+                                <span class="sub-title">Backend Developer</span>
+                                <ul class="social mt-25">
+                                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                                    <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single team -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="blog-more text-center mt-50">
+                            <a class="main-btn" href="#">More posts</a>
+                        </div>
+                        <!-- blog more -->
+                    </div>
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </section>
+
+        <!--====== BLOG PART ENDS ======-->
+
+        <!--====== CONTACT PART START ======-->
+
+        <section id="contact" class="contact-area pt-125 pb-130 gray-bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-title text-center pb-25">
+                            <h2 class="title">Get In Touch</h2>
+                            <p></p>
+                        </div>
+                        <!-- section title -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 col-sm-7">
+                        <div class="contact-box text-center mt-30">
+                            <div class="contact-icon">
+                                <i class="lni-map-marker"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h6 class="contact-title">Address</h6>
+                                <p>69-C/1 SAQ Road University Town Peshawar, KP, Pakistan, 25000</p>
+                            </div>
+                        </div>
+                        <!-- contact box -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-7">
+                        <div class="contact-box text-center mt-30">
+                            <div class="contact-icon">
+                                <i class="lni-phone"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h6 class="contact-title">Phone</h6>
+                                <p>+92 311 5703348</p>
+                            </div>
+                        </div>
+                        <!-- contact box -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-7">
+                        <div class="contact-box text-center mt-30">
+                            <div class="contact-icon">
+                                <i class="lni-envelope"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h6 class="contact-title">Email</h6>
+                                <p>support@newshunt.io</p>
+                                <p>info@newshunt.io</p>
+                            </div>
+                        </div>
+                        <!-- contact box -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="contact-form pt-30">
+                            <form id="contact-form" action="assets/contact.php">
+                                <div class="single-form">
+                                    <input type="text" name="name" placeholder="Name">
+                                </div>
+                                <!-- single form -->
+                                <div class="single-form">
+                                    <input type="email" name="email" placeholder="Email">
+                                </div>
+                                <!-- single form -->
+                                <div class="single-form">
+                                    <textarea name="message" placeholder="Message"></textarea>
+                                </div>
+                                <!-- single form -->
+                                <p class="form-message"></p>
+                                <div class="single-form">
+                                    <button class="main-btn" type="submit">Send Message</button>
+                                </div>
+                                <!-- single form -->
+                            </form>
+                        </div>
+                        <!-- contact form -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-map mt-60">
+                            <div class="gmap_canvas">
+                                <iframe id="gmap_canvas"
+                                    src="https://maps.google.com/maps?q=Mission%20District%2C%20San%20Francisco%2C%20CA%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            </div>
+                        </div>
+                        <!-- contact map -->
+                    </div>
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </section>
+
+        <!--====== CONTACT PART ENDS ======-->
+
+        <!--====== FOOTER PART START ======-->
+
+        <footer id="footer" class="footer-area">
+            <div class="footer-widget pt-130 pb-130">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="footer-content text-center">
+                                <a href="index.html">
+                                    <img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo">
+                                </a>
+                                <p class="mt-">
+                                </p>
+                                <ul>
+                                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                                    <li><a href="#"><i class="lni-pinterest"></i></a></li>
+                                    <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- footer content -->
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- container -->
+            </div>
+            <!-- footer widget -->
+            <div class="footer-copyright pb-20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="copyright-text text-center pt-20">
+                                <p>Copyright © 2022. developed by <a href="#" rel="nofollow">NGC</a></p>
+                            </div>
+                            <!-- copyright text -->
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- container -->
+            </div>
+            <!-- footer widget -->
+        </footer>
+
+        <!--====== FOOTER PART ENDS ======-->
+
+    </div>
+    <!--====== BACK TOP TOP PART START ======-->
+
+
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+    <!--====== BACK TOP TOP PART ENDS ======-->
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+    <!-- vue js -->
+    <script>
+        var myObject = new Vue({
+            el: '#app',
+            delimiters: ['{', '}'],
+            data: {
+                message: "hello from vue",
+                sumInput: "",
+                senInput: "",
+                preInput: "",
+                inputTextarea1: "",
+                inputTextarea2: "",
+                inputTextarea3: "",
+                summaryMethod: 1,
+                sentiMethod: 1,
+                mainTabs: 1,
+            },
+            methods: {
+                showPos() {
+                    $(".neutral_class").hide()
+                    $(".positive_class").show()
+                    $(".negative_class").hide()
+                },
+                showNeg() {
+                    $(".neutral_class").hide()
+                    $(".positive_class").hide()
+                    $(".negative_class").show()
+                },
+                showNeu() {
+                    $(".neutral_class").show()
+                    $(".positive_class").hide()
+                    $(".negative_class").hide()
+                },
+                showAll() {
+                    $(".positive_class").show()
+                    $(".neutral_class").show()
+                    $(".negative_class").show()
+                },
+                showToxicity() {
+                    $(".toxicity").show()
+                    $(".insult").hide()
+                    $(".profanity").hide()
+                    $(".sexuality_explict").hide()
+                    $(".identity_attack").hide()
+                    $(".threat").hide()
+                    $(".flirtation").hide()
+                    $(".severe_toxicity").hide()
+                },
+                showInsult() {
+                    $(".insult").show()
+                    $(".toxicity").hide()
+                    $(".profanity").hide()
+                    $(".sexuality_explict").hide()
+                    $(".identity_attack").hide()
+                    $(".threat").hide()
+                    $(".flirtation").hide()
+                    $(".severe_toxicity").hide()
+                },
+                showProfanity() {
+                    $(".profanity").show()
+                    $(".toxicity").hide()
+                    $(".insult").hide()
+                    $(".sexuality_explict").hide()
+                    $(".identity_attack").hide()
+                    $(".threat").hide()
+                    $(".flirtation").hide()
+                    $(".severe_toxicity").hide()
+                },
+                showSexExplict() {
+                    $(".sexuality_explict").show()
+                    $(".toxicity").hide()
+                    $(".insult").hide()
+                    $(".profanity").hide()
+                    $(".identity_attack").hide()
+                    $(".threat").hide()
+                    $(".flirtation").hide()
+                    $(".severe_toxicity").hide()
+                },
+                showIdAttack() {
+                    $(".identity_attack").show()
+                    $(".toxicity").hide()
+                    $(".insult").hide()
+                    $(".profanity").hide()
+                    $(".sexuality_explict").hide()
+                    $(".threat").hide()
+                    $(".flirtation").hide()
+                    $(".severe_toxicity").hide()
+                },
+                showThreat() {
+                    $(".threat").show()
+                    $(".toxicity").hide()
+                    $(".insult").hide()
+                    $(".profanity").hide()
+                    $(".sexuality_explict").hide()
+                    $(".identity_attack").hide()
+                    $(".flirtation").hide()
+                    $(".severe_toxicity").hide()
+                },
+                showFiltration() {
+                    $(".flirtation").show()
+                    $(".toxicity").hide()
+                    $(".insult").hide()
+                    $(".profanity").hide()
+                    $(".sexuality_explict").hide()
+                    $(".identity_attack").hide()
+                    $(".threat").hide()
+                    $(".severe_toxicity").hide()
+                },
+                showSevere() {
+                    $(".severe_toxicity").show()
+                    $(".flirtation").hide()
+                    $(".toxicity").hide()
+                    $(".insult").hide()
+                    $(".profanity").hide()
+                    $(".sexuality_explict").hide()
+                    $(".identity_attack").hide()
+                    $(".threat").hide()
+                },
+                showAllDA() {
+                    $(".flirtation").show()
+                    $(".toxicity").show()
+                    $(".insult").show()
+                    $(".profanity").show()
+                    $(".sexuality_explict").show()
+                    $(".identity_attack").show()
+                    $(".threat").show()
+                    $(".severe_toxicity").show()
+                },
+                resetSummary() {
+                    $("#isSummaryReset").hide()
+                    document.getElementById("content-target").readOnly = false
+                    inputTextarea1 = ""
+                    document.getElementById("content-target").readOnly = false
+                    $("#content-target").val('');
+                    document.getElementById("url1").value = ""
+                    document.getElementById("summary_result_text").innerHTML = ""
+                    document.getElementById("content-target").innerHTML = ""
+                    $("#isUrl1").show()
+                    $("#isFile1").show()
+                    $("#isInput1").show()
+                    $("#isReadInput").hide()
+                    $("#isBtn1").hide()
+                },
+                resetSenti() {
+                    document.getElementById("content-target2").readOnly = false
+                    document.getElementById("content-target2").innerHTML = ""
+                    inputTextarea2 = ""
+                    $("#content-target2").val('');
+                    document.getElementById("url2").value = ""
+                    document.getElementById("pdf2").innerHTML = ""
+                    $("#isUrl2").show()
+                    $("#isFile2").show()
+                    $("#isInput2").show()
+                    $("#isReadInput2").hide()
+                    $("#isSentiReset").show()
+                    $("#isBtn2").hide()
+                },
+                resetPres() {
+                    inputTextarea3 = ""
+                    document.getElementById("content-target3").readOnly = false
+                    document.getElementById("url3").value = ""
+                    document.getElementById("pdf3").innerHTML = ""
+                    $("#content-target3").val('');
+                    $("#isUrl3").show()
+                    $("#isFile3").show()
+                    $("#isInput3").show()
+                    $("#isPresReset").show()
+                    $("#isReadInput3").hide()
+                    document.getElementById("threat").innerHTML = ""
+                    document.getElementById("profanity").innerHTML = ""
+                    document.getElementById("identity").innerHTML = ""
+                    document.getElementById("sexual").innerHTML = ""
+                    document.getElementById("toxicity").innerHTML = ""
+                    document.getElementById("flirt").innerHTML = ""
+                    document.getElementById("insult").innerHTML = ""
+                    document.getElementById("severe").innerHTML = ""
+                    $("#isBtn3").hide()
+                }
+            },
+            watch: {
+                sumInput(val) {
+                    if (val === "") {
+                        $("#isFile1").show()
+                        $("#isInput1").show()
+                    } else {
+                        $("#isFile1").hide()
+                        $("#isInput1").hide()
+                    }
+                },
+                senInput(val) {
+                    if (val === "") {
+                        $("#isFile2").show()
+                        $("#isInput2").show()
+                    } else {
+                        $("#isFile2").hide()
+                        $("#isInput2").hide()
+                    }
+                },
+                preInput(val) {
+                    if (val === "") {
+                        $("#isFile3").show()
+                        $("#isInput3").show()
+                    } else {
+                        $("#isFile3").hide()
+                        $("#isInput3").hide()
+                    }
+                },
+                inputTextarea1(val) {
+                    if (val === "") {
+                        $("#isFile1").show()
+                        $("#isUrl1").show()
+                        $("#isBtn1").hide()
+                    } else {
+                        $("#isBtn1").show()
+                        $("#isFile1").hide()
+                        $("#isUrl1").hide()
+                    }
+                },
+                inputTextarea2(val) {
+                    if (val === "") {
+                        $("#isFile2").show()
+                        $("#isUrl2").show()
+                        $("#isBtn2").hide()
+                    } else {
+                        $("#isBtn2").show()
+                        $("#isFile2").hide()
+                        $("#isUrl2").hide()
+                    }
+                },
+                inputTextarea3(val) {
+                    if (val === "") {
+                        $("#isFile3").show()
+                        $("#isUrl3").show()
+                        $("#isBtn3").hide()
+                    } else {
+                        $("#isBtn3").show()
+                        $("#isFile3").hide()
+                        $("#isUrl3").hide()
+                    }
+                },
+                summaryMethod(val) {
+                    let url = document.getElementById("url1").value
+                    let input = document.getElementById("content-target").value
+                    let text = document.getElementById("read_input").innerHTML
+                    if (input != "") {
+                        summaryText()
+                    } else if (url != "") {
+                        summaryReqUrl()
+                        // console.log("URL: ", url)
+                    } else if (text != "") {
+                        // console.log("text: ", text)
+                        summaryReqBrowse()
+                    }
+                },
+                sentiMethod(val) {
+                    let url = document.getElementById("url2").value
+                    let input = document.getElementById("content-target2").value
+                    let text = document.getElementById("read_input2").innerHTML
+                    if (input != "") {
+                        sentiText()
+                    } else if (url != "") {
+                        sentiReqUrl()
+                        // console.log("URL: ", url)
+                    } else if (text != "") {
+                        sentiReqBrowse()
+                    }
+                },
+                mainTabs(val) {
+                    // console.log(val)
+                    if (val === '1') {
+                        this.sumInput = ""
+                        this.inputTextarea1 = ""
+                        this.resetSummary()
+                        // console.log("summary")
+                    } else if (val === '2') {
+                        this.senInput = ""
+                        this.inputTextarea2 = ""
+                        this.resetSenti()
+                        $("#isSentiReset").hide()
+                        // console.log("Senti")
+                    } else {
+                        this.preInput = ""
+                        this.inputTextarea3 = ""
+                        this.resetPres()
+                        // console.log("pres")
+                        $("#isPresReset").hide()
+                    }
+                }
+            },
+        })
+    </script>
+
+    <!-- axios -->
+
+    <script type="text/javascript" src="{{url_for('static', filename='js/axios.min.js')}}"></script>
+
+    <!-- Sweet Alert -->
+    <script type="text/javascript" src="{{url_for('static', filename='dist/sweetalert.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/sweetalert.css')}}">
+
+    <!--====== jquery js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/vendor/modernizr-3.6.0.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/vendor/jquery-1.12.4.min.js')}}"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+
+    <!--====== Magnific Popup js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+
+    <!--====== Parallax js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/parallax.min.js')}}"></script>
+
+    <!--====== Counter Up js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/waypoints.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.counterup.min.js')}}"></script>
+
+
+    <!--====== Appear js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.appear.min.js')}}"></script>
+
+    <!--====== Scrolling js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/scrolling-nav.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.easing.min.js')}}"></script>
+
+
+    <!--====== Main js ======-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/main.js')}}"></script>
+
+    <!-- pdf reader -->
+    <script src="https://www.jsdelivr.com/package/npm/pdfjs-dist"></script>
+    <script src="https://cdnjs.com/libraries/pdf.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist/"></script>
+
+    <!-- copytext -->
+    <script>
+        // Copy text function
+        function copyText() {
+            /* Get the text field */
+            var copyText = document.getElementById("summary_result_text")
+
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(copyText).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+            if (copyText.innerHTML == "") {
+                // alert("No Text Found")
+
+                swal("No text found", "", "error")
+            } else {
+                swal({
+                    showConfirmButton: false,
+                    title: 'Text copied',
+                    type: 'success',
+                    timer: 2000,
+                })
+                // swal("Text copied", "", "success", 300, false)
+                // swal({
+                //     title: "Text copied",
+                //     icon: "success",
+                //     button: false,
+                //     timer: 2000
+                // });
+                // document.getElementsByClassName('confirm btn btn-lg btn-primary')[0].click()
+            }
+
+            /* Alert the copied text */
+            // alert("Copied the text: " + copyText.value);
+        }
+
+        // Copy text function
+        function copyText2() {
+            /* Get the text field */
+            var copyText = $("#analyze_result span").each(function () {
+                var $val = $(this).text();
+            });
+
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(copyText).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+            if (copyText == "") {
+                // alert("No Text Found")
+
+                swal("No text found", "", "error")
+            } else {
+                swal({
+                    showConfirmButton: false,
+                    title: 'Text copied',
+                    type: 'success',
+                    timer: 2000,
+                })
+                // swal("Text copied", "", "success", 300, false)
+                // swal({
+                //     title: "Text copied",
+                //     icon: "success",
+                //     button: false,
+                //     timer: 2000
+                // });
+                // document.getElementsByClassName('confirm btn btn-lg btn-primary')[0].click()
+            }
+
+            /* Alert the copied text */
+            // alert("Copied the text: " + copyText.value);
+        }
+
+        // Copy text function
+        function copyText3() {
+            /* Get the text field */
+            var copyText = $("#analyze_result2 span").each(function () {
+                var $val = $(this).text();
+            });
+
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(copyText).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+
+            if (copyText == "") {
+                // alert("No Text Found")
+
+                swal("No text found", "", "error")
+            } else {
+                swal({
+                    showConfirmButton: false,
+                    title: 'Text copied',
+                    type: 'success',
+                    timer: 2000,
+                })
+                // swal("Text copied", "", "success", 300, false)
+                // swal({
+                //     title: "Text copied",
+                //     icon: "success",
+                //     button: false,
+                //     timer: 2000
+                // });
+                // document.getElementsByClassName('confirm btn btn-lg btn-primary')[0].click()
+            }
+
+            /* Alert the copied text */
+            // alert("Copied the text: " + copyText.value);
+        }
+    </script>
+
+    <!-- upload and read files Summarization -->
+    <script>
+        var file = document.getElementById('upload1');
+        var ext = ""
+        var fileText = ""
+        var url = ""
+        var method = ""
+
+        file.onchange = function (e) {
+            ext = this.value.match(/\.([^\.]+)$/)[1];
+            console.log(ext)
+            switch (ext) {
+                case 'txt':
+                    swal({
+                        showConfirmButton: false,
+                        title: 'Text File Uploaded',
+                        type: 'success',
+                        timer: 1000,
+                    })
+                    break;
+                case 'pdf':
+                    swal({
+                        showConfirmButton: false,
+                        title: 'PDF File Uploaded',
+                        type: 'success',
+                        timer: 1000,
+                    })
+                    break;
+                default:
+                    swal("Only text files are allowed or pdf are allowed", "", "error")
+                    // alert('Only Text File are allowed');
+                    this.value = '';
+            }
+        };
+
+        document.getElementById('upload1')
+            .addEventListener('change', loadFileAsText)
+
+        function loadFileAsText() {
+            var fileToLoad = document.getElementById("upload1").files[0];
+            var fileReader = new FileReader();
+            fileReader.onload = function (fileLoadedEvent) {
+                var textFromFileLoaded = fileLoadedEvent.target.result;
+                document.getElementById("read_input").innerHTML = textFromFileLoaded
+                $("#isInput1").hide()
+                $("#isReadInput").show()
+                fileText = textFromFileLoaded
+                summaryReqBrowse()
+            }
+            fileReader.readAsText(fileToLoad, "UTF-8");
+        }
+
+        function summaryReqUrl() {
+            document.getElementById("summary_result_text").innerHTML = ""
+            url = document.getElementById("url1").value
+            method = document.querySelector('.summarycheckbox').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            console.log(method)
+            if (url == "") {
+                swal("Please Enter URL", "", "error")
+            } else {
+                $("#isFile1").hide()
+                $("#isInput1").hide()
+                console.log("URL: ", url)
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/summary_from_url",
+                    data: {
+                        'url': url,
+                        'method': method
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    console.log("summary : ", response.data.summary)
+                    console.log("input text", response.data.inputtext)
+                    $("#isInput1").show()
+                    $("#isReadInput").show()
+                    $("#loader").hide()
+                    document.getElementById("summary_result_text").innerHTML = response.data.summary
+                    document.getElementById("read_input").innerHTML = response.data.inputtext
+                    $('#isInput1').hide();
+                    $("#isSummaryReset").show()
+                }).catch(function (error) {
+                    console.log(error.response.data.message)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+        function summaryReqBrowse() {
+            $("#isUrl1").hide()
+            document.getElementById("summary_result_text").innerHTML = ""
+            method = document.querySelector('.summarycheckbox').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            console.log("text file: ", fileText)
+            $("#loader").show()
+            axios({
+                method: "post",
+                url: "/summary_from_file",
+                data: {
+                    'fileText': fileText,
+                    'method': method
+                },
+            }).then(response => {
+                console.log(response.data)
+                $("#loader").hide()
+                document.getElementById("summary_result_text").innerHTML = response.data
+                $("#isSummaryReset").show()
+            }).catch(function (error) {
+                console.log(error.response.data.message)
+                $("#loader").hide()
+            })
+        }
+
+        function summaryText() {
+            document.getElementById("summary_result_text").innerHTML = ""
+            var text = document.getElementById("content-target").value
+            method = document.querySelector('.summarycheckbox').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            if (text == "") {
+                swal("No text found", "", "error")
+            } else {
+                // show loader
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/summary_from_file",
+                    data: {
+                        'method': method,
+                        'fileText': text
+                    },
+                }).then(response => {
+                    // hide loader
+                    $("#loader").hide()
+                    console.log(response.data)
+                    document.getElementById("summary_result_text").innerHTML = response.data
+                    $("#isSummaryReset").show()
+                }).catch(function (error) {
+                    // hide loader
+                    $("#loader").hide()
+                    console.log(error.response.data.message)
+                })
+            }
+        }
+
+        // function readFileContent(file) {
+        //     const reader = new FileReader()
+        //     return new Promise((resolve, reject) => {
+        //         console.log(event.target.value)
+        //         reader.onload = event => resolve(event.target.result)
+        //         reader.onerror = error => reject(error)
+        //         reader.readAsText(file)
+        //     })
+        // }
+
+        dropContainer1.ondragover = dropContainer1.ondragenter = function (evt) {
+            evt.preventDefault();
+        };
+
+        dropContainer1.ondrop = function (evt) {
+            // pretty simple -- but not for IE :(
+            upload1.files = evt.dataTransfer.files;
+            evt.preventDefault();
+        };
+    </script>
+
+    <!-- upload and read files sentinment analysis -->
+    <script>
+        var file = document.getElementById('upload2');
+        var fileText = ""
+        var url = ""
+        var method = ""
+
+        file.onchange = function (e) {
+            var ext = this.value.match(/\.([^\.]+)$/)[1];
+            switch (ext) {
+                case 'txt':
+                    swal({
+                        showConfirmButton: false,
+                        title: 'File Uploaded',
+                        type: 'success',
+                        timer: 1000,
+                    })
+                    break;
+                default:
+                    swal("Only text files are allowed", "", "error")
+                    // alert('Only Text File are allowed');
+                    this.value = '';
+            }
+        };
+
+        document.getElementById('upload2')
+            .addEventListener('change', loadFileAsText)
+
+        function loadFileAsText() {
+            var fileToLoad = document.getElementById("upload2").files[0];
+            var fileReader = new FileReader();
+            fileReader.onload = function (fileLoadedEvent) {
+                var textFromFileLoaded = fileLoadedEvent.target.result;
+                document.getElementById("read_input2").innerHTML = textFromFileLoaded
+                $("#isInput2").hide()
+                $("#isReadInput2").show()
+                fileText = textFromFileLoaded
+                sentiReqBrowse()
+            }
+            fileReader.readAsText(fileToLoad, "UTF-8");
+        }
+
+        function sentiReqUrl() {
+            document.getElementById("pdf2").innerHTML = ""
+            document.getElementById("pos").innerHTML = ""
+            document.getElementById("neg").innerHTML = ""
+            document.getElementById("neu").innerHTML = ""
+            url = document.getElementById("url2").value
+            method = document.querySelector('.summarycheckbox2').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            if (url == "") {
+                swal("Please Enter URL", "", "error")
+            } else {
+                $("#isFile2").hide()
+                $("#isInput2").hide()
+                console.log("URL: ", method)
+                console.log("URL: ", url)
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/sentiment_from_url",
+                    data: {
+                        'url': url,
+                        'method': method
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    $("#isInput2").hide()
+                    $("#isReadInput2").show()
+                    $("#loader").hide()
+                    document.getElementById("pdf2").innerHTML = response.data.sentences
+                    document.getElementById("pos").innerHTML = response.data.Pos
+                    document.getElementById("neg").innerHTML = response.data.Neg
+                    document.getElementById("neu").innerHTML = response.data.Neu
+                    document.getElementById("read_input2").innerHTML = response.data.inputtext
+                    $("#isSentiReset").show()
+                }).catch(function (error) {
+                    console.log(error.response.data.message)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+        function sentiReqBrowse() {
+            $("#isUrl2").hide()
+            document.getElementById("pdf2").innerHTML = ""
+            document.getElementById("pos").innerHTML = ""
+            document.getElementById("neg").innerHTML = ""
+            document.getElementById("neu").innerHTML = ""
+            method = document.querySelector('.summarycheckbox2').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            console.log("URL: ", method)
+            console.log("text file: ", fileText)
+            $("#loader").show()
+            axios({
+                method: "post",
+                url: "/sentiment_from_file",
+                data: {
+                    'fileText': fileText,
+                    'method': method
+                },
+            }).then(response => {
+                console.log(response.data)
+                $("#loader").hide()
+                $("#isInput2").hide()
+                $("#isReadInput2").show()
+                document.getElementById("pdf2").innerHTML = response.data.sentences
+                document.getElementById("pos").innerHTML = response.data.Pos
+                document.getElementById("neg").innerHTML = response.data.Neg
+                document.getElementById("neu").innerHTML = response.data.Neu
+                $("#isSentiReset").show()
+            }).catch(function (error) {
+                console.log(error.response.data.message)
+                $("#loader").hide()
+            })
+        }
+
+        function sentiText() {
+            document.getElementById("pdf2").innerHTML = ""
+            document.getElementById("pos").innerHTML = ""
+            document.getElementById("neg").innerHTML = ""
+            document.getElementById("neu").innerHTML = ""
+            var text = document.getElementById("content-target2").value
+            method = document.querySelector('.summarycheckbox2').checked
+            if (method == true) {
+                method = 1
+            } else {
+                method = 2
+            }
+            if (text == "") {
+                swal("No text found", "", "error")
+            } else {
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/sentiment_from_file",
+                    dataType: "text",
+                    data: {
+                        'method': method,
+                        'fileText': text
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    $("#loader").hide()
+                    //document.getElementById("content-target").innerHTML = response.input
+                    document.getElementById("pdf2").innerHTML = response.data.sentences
+                    document.getElementById("pos").innerHTML = response.data.Pos
+                    document.getElementById("neg").innerHTML = response.data.Neg
+                    document.getElementById("neu").innerHTML = response.data.Neu
+                    $("#isSentiReset").show()
+                }).catch(function (error) {
+                    console.log(error.response.data.message)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+
+        dropContainer2.ondragover = dropContainer2.ondragenter = function (evt) {
+            evt.preventDefault();
+        };
+
+        dropContainer2.ondrop = function (evt) {
+            // pretty simple -- but not for IE :(
+            upload2.files = evt.dataTransfer.files;
+            evt.preventDefault();
+        };
+    </script>
+
+    <!-- upload and read files prespective analysis -->
+    <script>
+        var file = document.getElementById('upload3');
+        var fileText = ""
+        var url = ""
+
+        // listen to changes in input 3
+        $('#isInput3').change(function (e) {
+            console.log(e)
+            $("#isFile3").hide()
+            $("#isUrl3").hide()
+            $("#isBtn3").show()
+        });
+
+        file.onchange = function (e) {
+            var ext = this.value.match(/\.([^\.]+)$/)[1];
+            switch (ext) {
+                case 'txt':
+                    swal({
+                        showConfirmButton: false,
+                        title: 'File Uploaded',
+                        type: 'success',
+                        timer: 1000,
+                    })
+                    break;
+                default:
+                    swal("Only text files are allowed", "", "error")
+                    // alert('Only Text File are allowed');
+                    this.value = '';
+            }
+        };
+
+        document.getElementById('upload3')
+            .addEventListener('change', loadFileAsText)
+
+        function loadFileAsText() {
+            var fileToLoad = document.getElementById("upload3").files[0];
+            var fileReader = new FileReader();
+            fileReader.onload = function (fileLoadedEvent) {
+                var textFromFileLoaded = fileLoadedEvent.target.result;
+                // document.getElementById("content-target3").innerHTML = textFromFileLoaded
+                document.getElementById("read_input3").innerHTML = textFromFileLoaded
+                $("#isInput3").hide()
+                $("#isReadInput3").show()
+                fileText = textFromFileLoaded
+                presReqBrowse()
+            }
+            fileReader.readAsText(fileToLoad, "UTF-8");
+        }
+
+        function presReqUrl() {
+            document.getElementById("pdf3").innerHTML = ""
+            document.getElementById("threat").innerHTML = ""
+            document.getElementById("profanity").innerHTML = ""
+            document.getElementById("identity").innerHTML = ""
+            document.getElementById("sexual").innerHTML = ""
+            document.getElementById("toxicity").innerHTML = ""
+            document.getElementById("flirt").innerHTML = ""
+            document.getElementById("insult").innerHTML = ""
+            document.getElementById("severe").innerHTML = ""
+            url = document.getElementById("url3").value
+            if (url == "") {
+                swal("Please Enter URL", "error")
+            } else {
+
+                $("#isFile3").hide()
+                $("#isInput3").hide()
+                console.log("URL: ", url)
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/perspective_from_url",
+                    data: {
+                        'url': url
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    $("#loader").hide()
+                    $("#isReadInput3").show()
+                    //document.getElementById("content-target").innerHTML = response.input
+                    document.getElementById("pdf3").innerHTML = response.data.sentences
+                    document.getElementById("threat").innerHTML = response.data.threat
+                    document.getElementById("profanity").innerHTML = response.data.profanity
+                    document.getElementById("identity").innerHTML = response.data.identity
+                    document.getElementById("sexual").innerHTML = response.data.sexual
+                    document.getElementById("toxicity").innerHTML = response.data.toxicity
+                    document.getElementById("flirt").innerHTML = response.data.flirt
+                    document.getElementById("insult").innerHTML = response.data.insult
+                    document.getElementById("read_input3").innerHTML = response.data.inputtext
+                    document.getElementById("severe").innerHTML = response.data.severe
+                    $("#isPresReset").show()
+                }).catch(function (error) {
+                    console.log(error.response.data.message)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+        function presReqBrowse() {
+            $("#isUrl3").hide()
+            document.getElementById("pdf3").innerHTML = ""
+            document.getElementById("threat").innerHTML = ""
+            document.getElementById("profanity").innerHTML = ""
+            document.getElementById("identity").innerHTML = ""
+            document.getElementById("sexual").innerHTML = ""
+            document.getElementById("toxicity").innerHTML = ""
+            document.getElementById("flirt").innerHTML = ""
+            document.getElementById("insult").innerHTML = ""
+            console.log("text file: ", fileText)
+            $("#loader").show()
+            axios({
+                method: "post",
+                url: "/perspective_from_file",
+                data: {
+                    'fileText': fileText
+                },
+            }).then(response => {
+                console.log(response.data)
+                $("#loader").hide()
+                $("#isInput3").hide()
+                $("#isReadInput3").show()
+                document.getElementById("pdf3").innerHTML = response.data.sentences
+                document.getElementById("threat").innerHTML = response.data.threat
+                document.getElementById("profanity").innerHTML = response.data.profanity
+                document.getElementById("identity").innerHTML = response.data.identity
+                document.getElementById("sexual").innerHTML = response.data.sexual
+                document.getElementById("toxicity").innerHTML = response.data.toxicity
+                document.getElementById("flirt").innerHTML = response.data.flirt
+                document.getElementById("insult").innerHTML = response.data.insult
+                $("#isPresReset").show()
+            }).catch(function (error) {
+                console.log(error.response.data.message)
+                $("#loader").hide()
+            })
+        }
+
+        function presText() {
+            document.getElementById("pdf3").innerHTML = ""
+            document.getElementById("threat").innerHTML = ""
+            document.getElementById("profanity").innerHTML = ""
+            document.getElementById("identity").innerHTML = ""
+            document.getElementById("sexual").innerHTML = ""
+            document.getElementById("toxicity").innerHTML = ""
+            document.getElementById("flirt").innerHTML = ""
+            document.getElementById("insult").innerHTML = ""
+            document.getElementById("severe").innerHTML = ""
+            var text = document.getElementById("content-target3").value
+            if (text == "") {
+                swal("No text found", "", "error")
+            } else {
+                $("#loader").show()
+                axios({
+                    method: "post",
+                    url: "/perspective_from_file",
+                    dataType: "text",
+                    data: {
+                        'fileText': text
+                    },
+                }).then(response => {
+                    console.log(response.data)
+                    $("#loader").hide()
+                    //document.getElementById("content-target").innerHTML = response.input
+                    document.getElementById("pdf3").innerHTML = response.data.sentences
+                    document.getElementById("threat").innerHTML = response.data.threat
+                    document.getElementById("profanity").innerHTML = response.data.profanity
+                    document.getElementById("identity").innerHTML = response.data.identity
+                    document.getElementById("sexual").innerHTML = response.data.sexual
+                    document.getElementById("toxicity").innerHTML = response.data.toxicity
+                    document.getElementById("flirt").innerHTML = response.data.flirt
+                    document.getElementById("insult").innerHTML = response.data.insult
+                    document.getElementById("severe").innerHTML = response.data.severe
+                    $("#isPresReset").show()
+                }).catch(function (error) {
+                    console.log(error.response.data.message)
+                    $("#loader").hide()
+                })
+            }
+        }
+
+        dropContainer3.ondragover = dropContainer3.ondragenter = function (evt) {
+            evt.preventDefault();
+        };
+
+        dropContainer3.ondrop = function (evt) {
+            // pretty simple -- but not for IE :(
+            upload3.files = evt.dataTransfer.files;
+            evt.preventDefault();
+        };
+    </script>
+
+    <!-- pdf cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+    <!-- word cdn -->
+    <script src="https://unpkg.com/docx@4.0.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <!-- txt cdn -->
+    <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js">
+    </script>
+
+    <!-- export files summarization -->
+    <script>
+        var which = 'pdf'
+
+        function download() {
+            let list = document.getElementById('export-data');
+            var listName = list.options[list.selectedIndex].value
+            which = listName
+        }
+
+        function saveFile() {
+            $('#exampleModalCenter').modal('hide')
+
+            var text = document.getElementById("summary_result_text").innerHTML;
+
+            if (which == 'pdf') {
+
+                // var doc = new jsPDF()
+
+                var lMargin = 15; //left margin in mm
+                var rMargin = 15; //right margin in mm
+                var pdfInMM = 210;
+
+                // doc.text('Summary', 10, 10)
+
+                var doc = new jsPDF("p", "mm", "a4");
+                var paragraph = text
+                var lines = doc.splitTextToSize(paragraph, (pdfInMM - lMargin - rMargin));
+                doc.text(lMargin, 20, lines);
+                doc.save('summary.pdf')
+            } else if (which == 'word') {
+
+                const doc = new Document();
+
+                const paragraph = new Paragraph(text);
+                doc.addParagraph(paragraph);
+
+                const packer = new Packer();
+
+                packer.toBlob(doc).then(blob => {
+                    console.log(blob);
+                    saveAs(blob, "summary.docx");
+                });
+            } else {
+                var blob = new Blob([text], {
+                    type: "text/plain;charset=utf-8"
+                });
+                saveAs(blob, "summary.txt");
+            }
+        }
+    </script>
+
+    <!-- export files sentinment analysis -->
+    <script>
+        var which = 'pdf'
+
+        function download2() {
+            let list = document.getElementById('export-data2');
+            var listName = list.options[list.selectedIndex].value
+            which = listName
+        }
+
+        function saveFile2() {
+            $('#exampleModalCenter2').modal('hide')
+            var text = ""
+            $("#analyze_result span").each(function () {
+                text += $(this).text() + '. ';
+            });
+
+            if (which == 'pdf') {
+
+                // var doc = new jsPDF()
+
+                // var lMargin = 15; //left margin in mm
+                // var rMargin = 15; //right margin in mm
+                // var pdfInMM = 210;
+
+                // // doc.text('Summary', 10, 10)
+
+                // var doc = new jsPDF("p", "mm", "a4");
+                // var paragraph = text
+                // var lines = doc.splitTextToSize(paragraph, (pdfInMM - lMargin - rMargin));
+                // doc.text(lMargin, 20, lines);
+
+                //new code
+                var pdf = new jsPDF('p', 'pt', 'letter');
+
+                pdf.setFillColor(0, 255, 255, 0);
+                // source can be HTML-formatted string, or a reference
+                // to an actual DOM element from which the text will be scraped.
+                source = $('#pdf2')[0];
+                console.log(source)
+
+                // we support special element handlers. Register them with jQuery-style 
+                // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+                // There is no support for any other type of selectors 
+                // (class, of compound) at this time.
+                specialElementHandlers = {
+                    // element with id of "bypass" - jQuery style selector
+                    '#bypassme': function (element, renderer) {
+                        // true = "handled elsewhere, bypass text extraction"
+                        return true
+                    }
+                };
+                margins = {
+                    top: 80,
+                    bottom: 60,
+                    left: 40,
+                    width: 522
+                };
+                // all coords and widths are in jsPDF instance's declared units
+                // 'inches' in this case
+                pdf.fromHTML(
+                    source, // HTML string or DOM elem ref.
+                    margins.left, // x coord
+                    margins.top, { // y coord
+                        'width': margins.width, // max width of content on PDF
+                        'elementHandlers': specialElementHandlers
+                    },
+
+                    function (dispose) {
+                        // dispose: object with X, Y of the last line add to the PDF 
+                        //          this allow the insertion of new lines after html
+                        pdf.save('Sentiment.pdf');
+                    }, margins);
+            } else if (which == 'word') {
+
+                const doc = new Document();
+
+                const paragraph = new Paragraph(text);
+                doc.addParagraph(paragraph);
+
+                const packer = new Packer();
+
+                packer.toBlob(doc).then(blob => {
+                    console.log(blob);
+                    saveAs(blob, "sentiment.docx");
+                });
+            } else {
+                var blob = new Blob([text], {
+                    type: "text/plain;charset=utf-8"
+                });
+                saveAs(blob, "sentiment.txt");
+            }
+        }
+    </script>
+
+    <!-- export files prespective analysis -->
+    <script>
+        var which = 'pdf'
+
+        function download3() {
+            let list = document.getElementById('export-data3');
+            var listName = list.options[list.selectedIndex].value
+            which = listName
+        }
+
+        function saveFile3() {
+            $('#exampleModalCenter3').modal('hide')
+
+            var text = ""
+            $("#analyze_result2 span").each(function () {
+                text += $(this).text() + '. ';
+            });
+
+
+            if (which == 'pdf') {
+
+                // old code
+                // var doc = new jsPDF()
+
+                // var lMargin = 15; //left margin in mm
+                // var rMargin = 15; //right margin in mm
+                // var pdfInMM = 210;
+
+                // // doc.text('Summary', 10, 10)
+
+                // var doc = new jsPDF("p", "mm", "a4");
+                // var paragraph = text
+                // var lines = doc.splitTextToSize(paragraph, (pdfInMM - lMargin - rMargin));
+                // doc.text(lMargin, 20, lines);
+                // doc.save('summary.pdf')
+
+                //new code
+                var pdf = new jsPDF('p', 'pt', 'letter');
+                // source can be HTML-formatted string, or a reference
+                // to an actual DOM element from which the text will be scraped.
+                source = $('#pdf3')[0];
+
+                // we support special element handlers. Register them with jQuery-style 
+                // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+                // There is no support for any other type of selectors 
+                // (class, of compound) at this time.
+                specialElementHandlers = {
+                    // element with id of "bypass" - jQuery style selector
+                    '#bypassme': function (element, renderer) {
+                        // true = "handled elsewhere, bypass text extraction"
+                        return true
+                    }
+                };
+                margins = {
+                    top: 80,
+                    bottom: 60,
+                    left: 40,
+                    width: 522
+                };
+                // all coords and widths are in jsPDF instance's declared units
+                // 'inches' in this case
+                pdf.fromHTML(
+                    source, // HTML string or DOM elem ref.
+                    margins.left, // x coord
+                    margins.top, { // y coord
+                        'width': margins.width, // max width of content on PDF
+                        'elementHandlers': specialElementHandlers
+                    },
+
+                    function (dispose) {
+                        // dispose: object with X, Y of the last line add to the PDF 
+                        //          this allow the insertion of new lines after html
+                        pdf.save('Prespective.pdf');
+                    }, margins);
+            } else if (which == 'word') {
+
+                const doc = new Document();
+
+                const paragraph = new Paragraph(text);
+                doc.addParagraph(paragraph);
+
+                const packer = new Packer();
+
+                packer.toBlob(doc).then(blob => {
+                    console.log(blob);
+                    saveAs(blob, "summary.docx");
+                });
+            } else {
+                var blob = new Blob([text], {
+                    type: "text/plain;charset=utf-8"
+                });
+                saveAs(blob, "summary.txt");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
